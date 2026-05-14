@@ -29,7 +29,7 @@ lets
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -61,7 +61,7 @@ lets
 
     <!-- FULL WEBSITE NAVBAR -->
     <nav class="navbar">
-        <a href="index.html" class="logo">GetCitedGEO</a>
+        <a href="/" class="logo">GetCitedGEO</a>
         <div class="nav-links">
             <a href="#how-it-works">How It Works</a>
             <a href="#what-we-check">What We Check</a>
@@ -153,7 +153,7 @@ lets
 
             <form class="audit-form-advanced" action="https://formsubmit.co/hello@getcitedgeo.com" method="POST">
                 <!-- IMPORTANT: replace hello@getcitedgeo.com with your real email -->
-                <input type="hidden" name="_next" value="https://getcitedgeo.com/audit-underway.html">
+                <input type="hidden" name="_next" value="https://getcitedgeo.com/audit-underway">
                 <input type="hidden" name="_captcha" value="false">
                 <div class="input-row">
                     <input type="text" name="name" placeholder="Full Name" required>
@@ -245,7 +245,7 @@ lets
     <footer>
         <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
             <div>GetCitedGEO © 2026. Melbourne, AU.</div>
-            <a href="privacy-policy.html" style="color: #666; font-size: 0.85rem; text-decoration: none;">Privacy
+            <a href="/privacy-policy" style="color: #666; font-size: 0.85rem; text-decoration: none;">Privacy
                 Policy</a>
         </div>
     </footer>

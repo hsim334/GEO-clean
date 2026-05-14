@@ -9,27 +9,33 @@
         content="We help you uncover how your website is performing and set up for AI platforms. Free AI Readiness Audit.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        as="style">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="preload" href="landing.css" as="style">
     <link rel="stylesheet" href="landing.css">
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '783774997846579');
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '783774997846579');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
 
@@ -43,7 +49,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="landing.html" class="logo">
+        <a href="/landing" class="logo">
             GetCitedGEO
         </a>
         <div class="nav-links">
@@ -67,7 +73,7 @@
 
             <div class="form-container liquid-glass" id="audit-form">
                 <form action="https://formsubmit.co/hello@getcitedgeo.com" method="POST">
-                    <input type="hidden" name="_next" value="https://getcitedgeo.com/landing-thank-you.html">
+                    <input type="hidden" name="_next" value="https://getcitedgeo.com/landing-thank-you">
                     <input type="hidden" name="_captcha" value="false">
 
                     <div class="form-group">
@@ -141,7 +147,7 @@
     </main>
 
     <footer class="footer">
-        <div>GetCitedGEO © 2026. Melbourne, AU. <a href="privacy-policy.html">Privacy Policy</a></div>
+        <div>GetCitedGEO © 2026. Melbourne, AU. <a href="/privacy-policy">Privacy Policy</a></div>
     </footer>
 
 </body>
