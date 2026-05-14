@@ -9,9 +9,9 @@
         content="We help you uncover how your website is performing and set up for AI platforms. Free AI Readiness Audit.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="landing.css" as="style">
     <link rel="stylesheet" href="landing.css">
 
     <!-- Meta Pixel Code -->
@@ -72,7 +72,7 @@
 
                     <div class="form-group">
                         <label>Website</label>
-                        <input type="url" name="website" placeholder="https://yoursite.com" required>
+                        <input type="text" name="website" placeholder="yoursite.com" required>
                     </div>
 
                     <div class="form-row">
