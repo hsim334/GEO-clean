@@ -229,7 +229,6 @@
             'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '783774997846579');
         fbq('track', 'PageView');
-        fbq('track', 'Lead');
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1" /></noscript>
@@ -237,6 +236,10 @@
 </head>
 
 <body>
+    <!-- Meta Event Tracking -->
+    <script>
+        fbq('track', 'Lead');
+    </script>
 
     <div class="aurora-bg">
         <div class="aurora-orb orb-1"></div>
