@@ -5,7 +5,7 @@ GetCitedGEO is a specialized technical agency based in Melbourne, Australia, foc
 ## What We Do
 We help businesses uncover how their websites are performing on major AI platforms like ChatGPT, Claude, Gemini, and Perplexity. Traditional SEO is no longer enough; AI is the new gatekeeper. If a business's website isn't structured to feed these AI models exactly what they're looking for, they become invisible to AI. 
 
-We offer a free, deep-dive technical AI Readiness Audit to show businesses exactly how AI engines read, evaluate, and rank their brand versus their competitors. 
+We give businesses and explain a deep-dive technical AI Readiness Audit completely for free, showing them exactly how AI engines read, evaluate, and rank their brand versus their competitors.
 
 ## Key Pages
 - [Home](https://getcitedgeo.com/)
