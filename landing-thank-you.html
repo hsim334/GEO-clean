@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audit Request Received | GetCitedGEO</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="landing.css">
     <style>
         .thank-you-wrapper {
@@ -18,7 +21,7 @@
             position: relative;
             z-index: 10;
         }
-        
+
         .thank-you-card {
             max-width: 800px;
             width: 100%;
@@ -29,22 +32,23 @@
             opacity: 0;
             transform: translateY(30px);
         }
-        
+
         @keyframes card-appear {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .pulse-ring {
             width: 80px;
             height: 80px;
             margin: 0 auto 2.5rem;
             position: relative;
         }
-        
-        .pulse-ring::before, .pulse-ring::after {
+
+        .pulse-ring::before,
+        .pulse-ring::after {
             content: '';
             position: absolute;
             top: 0;
@@ -55,11 +59,11 @@
             border: 2px solid var(--accent-cyan);
             animation: pulse-animation 2s linear infinite;
         }
-        
+
         .pulse-ring::after {
             animation-delay: 1s;
         }
-        
+
         .pulse-core {
             width: 100%;
             height: 100%;
@@ -72,18 +76,19 @@
             z-index: 2;
             box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
         }
-        
+
         .pulse-core svg {
             width: 40px;
             height: 40px;
             fill: #fff;
         }
-        
+
         @keyframes pulse-animation {
             0% {
                 transform: scale(1);
                 opacity: 1;
             }
+
             100% {
                 transform: scale(2);
                 opacity: 0;
@@ -100,14 +105,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .thank-you-card p.subtitle {
             font-size: 1.25rem;
             color: #fff;
             margin-bottom: 3rem;
             font-weight: 500;
         }
-        
+
         .winner-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -115,7 +120,7 @@
             text-align: left;
             margin-top: 3rem;
         }
-        
+
         .winner-box {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -123,14 +128,14 @@
             padding: 2rem;
             transition: all 0.4s ease;
         }
-        
+
         .winner-box:hover {
             background: rgba(255, 255, 255, 0.06);
             transform: translateY(-5px);
             border-color: rgba(99, 102, 241, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
-        
+
         .winner-box h3 {
             font-family: var(--font-heading);
             font-size: 1.35rem;
@@ -140,19 +145,19 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .winner-box p {
             font-size: 1.05rem;
             margin-bottom: 0;
             line-height: 1.6;
             color: var(--text-secondary);
         }
-        
+
         .winner-box strong {
             color: #fff;
             font-weight: 600;
         }
-        
+
         .status-badge {
             display: inline-block;
             padding: 0.5rem 1rem;
@@ -169,8 +174,13 @@
         }
 
         @keyframes pulse-glow {
-            0% { box-shadow: 0 0 10px rgba(6, 182, 212, 0.1); }
-            100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.4); }
+            0% {
+                box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+            }
         }
 
         .cta-btn {
@@ -197,6 +207,7 @@
             .winner-grid {
                 grid-template-columns: 1fr;
             }
+
             .thank-you-card {
                 padding: 2.5rem 1.5rem;
             }
@@ -205,23 +216,26 @@
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '783774997846579');
-    fbq('track', 'PageView');
-    fbq('track', 'Lead');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '783774997846579');
+        fbq('track', 'PageView');
+        fbq('track', 'Lead');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
+
 <body>
 
     <div class="aurora-bg">
@@ -237,42 +251,61 @@
 
     <div class="thank-you-wrapper">
         <div class="thank-you-card liquid-glass">
-            
+
             <div class="status-badge">Processing Request</div>
-            
+
             <div class="pulse-ring">
                 <div class="pulse-core">
                     <svg viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                     </svg>
                 </div>
             </div>
-            
+
             <h1>Audit in progress.</h1>
-            <p class="subtitle">Our engineering team has received your URL and is generating your technical data report.</p>
-            
+            <p class="subtitle">Our engineering team has received your URL and is generating your technical data report.
+            </p>
+
             <div class="winner-grid">
                 <div class="winner-box">
                     <h3>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
                         Step 2: Book Your Walkthrough
                     </h3>
-                    <p>Schedule your <strong>20-minute technical breakdown</strong> below. Our team will explain the audit findings exactly as the AI engines see your site.</p>
+                    <p>Schedule your <strong>20-minute technical breakdown</strong> below. Our team will explain the
+                        audit findings exactly as the AI engines see your site.</p>
                 </div>
-                
-                <div class="winner-box" style="border-color: rgba(244, 63, 94, 0.3); background: rgba(244, 63, 94, 0.02);">
+
+                <div class="winner-box"
+                    style="border-color: rgba(244, 63, 94, 0.3); background: rgba(244, 63, 94, 0.02);">
                     <h3 style="color: #fff;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
                         The Handover Rule
                     </h3>
-                    <p>We do not email generic PDFs. This is a complex technical diagnostic. <strong>Your report will only be delivered during the call.</strong> If you miss your scheduled walkthrough, your report is permanently deleted.</p>
+                    <p>We do not email generic PDFs. This is a complex technical diagnostic. <strong>Your report will
+                            only be delivered during the call.</strong> If you miss your scheduled walkthrough, your
+                        report is permanently deleted.</p>
                 </div>
             </div>
 
-            <div style="margin-top: 3rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; overflow: hidden; padding: 1rem;">
+            <div
+                style="margin-top: 3rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; overflow: hidden; padding: 1rem;">
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/hello-getcitedgeo/ai-visibility-audit-walkthrough?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0f&text_color=ffffff&primary_color=06b6d4" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <div class="calendly-inline-widget"
+                    data-url="https://calendly.com/hello-getcitedgeo/ai-visibility-audit-walkthrough?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0f&text_color=ffffff&primary_color=06b6d4"
+                    style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                    async></script>
                 <!-- Calendly inline widget end -->
             </div>
 
@@ -281,4 +314,5 @@
     </div>
 
 </body>
+
 </html>

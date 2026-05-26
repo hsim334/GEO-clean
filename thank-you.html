@@ -22,7 +22,8 @@
         }
 
         .ty-card {
-            max-width: 1000px; width: 100%;
+            max-width: 1000px;
+            width: 100%;
             padding: 5rem 4rem;
         }
 
@@ -49,7 +50,7 @@
 
     <!-- PostHog Analytics -->
     <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonProperties group reset groups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonProperties group reset groups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
         posthog.init('phc_C3FYervYK5VHTuoKwJQbwNeFc5qRerkvPwDccuxHF7qD', {
             api_host: 'https://us.i.posthog.com',
             person_profiles: 'identified_only' // or 'always' for anonymous heatmaps tracking
@@ -58,21 +59,23 @@
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '783774997846579');
-    fbq('track', 'PageView');
-    fbq('track', 'Lead');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '783774997846579');
+        fbq('track', 'PageView');
+        fbq('track', 'Lead');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
 
@@ -88,14 +91,20 @@
             <div class="ty-icon">🟢</div>
             <h1>Audit Successfully Initiated</h1>
             <p>We are compiling your highly technical AI visibility report right now.</p>
-            <p style="font-weight: 600; color: #fff;">Most agencies charge thousands of dollars for this exact level of technical GEO reporting. We believe you should have this data for free.</p>
-            <p style="color: #f43f5e; font-weight: 600; margin-top: 1rem;">Important: We do not email generic PDFs. Your report will only be delivered during a 20-minute technical breakdown call.</p>
+            <p style="font-weight: 600; color: #fff;">Most agencies charge thousands of dollars for this exact level of
+                technical GEO reporting. We believe you should have this data for free.</p>
+            <p style="color: #f43f5e; font-weight: 600; margin-top: 1rem;">Important: We do not email generic PDFs. Your
+                report will only be delivered during a 20-minute technical breakdown call.</p>
             <p>Please book your 20-minute walkthrough below to secure your report.</p>
 
-            <div style="margin-top: 2rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; overflow: hidden; padding: 1rem;">
+            <div
+                style="margin-top: 2rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; overflow: hidden; padding: 1rem;">
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/hello-getcitedgeo/ai-visibility-audit-walkthrough?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0f&text_color=ffffff&primary_color=06b6d4" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <div class="calendly-inline-widget"
+                    data-url="https://calendly.com/hello-getcitedgeo/ai-visibility-audit-walkthrough?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0f&text_color=ffffff&primary_color=06b6d4"
+                    style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                    async></script>
                 <!-- Calendly inline widget end -->
             </div>
 

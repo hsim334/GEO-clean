@@ -49,6 +49,42 @@ lets
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://getcitedgeo.com/#organization",
+          "name": "GetCitedGEO",
+          "url": "https://getcitedgeo.com/",
+          "description": "We help you uncover how your website is performing and set up for AI platforms. Free AI Readiness Audit.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Melbourne",
+            "addressCountry": "AU"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@getcitedgeo.com",
+            "contactType": "customer support"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://getcitedgeo.com/#website",
+          "url": "https://getcitedgeo.com/",
+          "name": "GetCitedGEO",
+          "description": "Free AI Readiness Audit for Generative Engine Optimisation (GEO)",
+          "publisher": {
+            "@id": "https://getcitedgeo.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
