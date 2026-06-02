@@ -5,57 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Every day your business isn't visible to AI, someone else gets the client | GetCitedGEO</title>
-    <meta name="description"
-        content="Discover why your business might be losing clients to AI recommendations and how to become visible to AI systems like ChatGPT and Perplexity.">
+    <meta name="description" content="Discover why your business might be losing clients to AI recommendations and how to become visible to AI systems like ChatGPT and Perplexity.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .article-section {
-            max-width: 800px;
+        .article-hero {
+            position: relative;
+            padding: 8rem 20px 4rem;
+            text-align: center;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 150px 20px 100px;
-            color: #a1a1aa;
-            font-size: 1.25rem;
-            line-height: 1.7;
+            z-index: 10;
         }
 
-        .article-section h1 {
+        .article-hero h1 {
             color: #ffffff;
-            font-size: 3.5rem;
-            font-family: inherit;
-            font-weight: 700;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-family: var(--font-heading);
+            font-weight: 800;
             line-height: 1.1;
             margin-bottom: 2rem;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.03em;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .article-section h2 {
+        .hero-image-wrapper {
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--glass-highlight);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 500px;
+        }
+
+        .article-content {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+            color: var(--text-secondary);
+            font-size: 1.35rem;
+            line-height: 1.8;
+            font-family: var(--font-body);
+            position: relative;
+            z-index: 10;
+        }
+
+        .article-content p {
+            margin-bottom: 2rem;
+        }
+
+        .article-content h2 {
             color: #ffffff;
-            font-size: 2rem;
-            margin-top: 3rem;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-top: 4rem;
             margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .pull-quote {
+            padding: 2rem 3rem;
+            margin: 3rem 0;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #ffffff;
+            border-left: 4px solid var(--accent-cyan);
+            background: linear-gradient(90deg, rgba(6, 182, 212, 0.1) 0%, transparent 100%);
+            border-radius: 0 16px 16px 0;
+        }
+
+        .article-content strong {
+            color: #fff;
             font-weight: 600;
         }
 
-        .article-section p {
+        .article-cta-box {
+            text-align: center;
+            padding: 4rem;
+            margin: 4rem 0;
+            border-radius: 24px;
+        }
+
+        .article-cta-box h3 {
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
         }
 
-        .article-section hr {
-            border: 0;
-            height: 1px;
-            background: #333;
-            margin: 3rem 0;
-        }
     </style>
 
     <!-- PostHog Analytics -->
     <script>
-        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonProperties group reset groups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonProperties group reset groups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
         posthog.init('phc_C3FYervYK5VHTuoKwJQbwNeFc5qRerkvPwDccuxHF7qD', {
             api_host: 'https://us.i.posthog.com',
             person_profiles: 'identified_only'
@@ -64,22 +119,20 @@
 
     <!-- Meta Pixel Code -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '783774997846579');
-        fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '783774997846579');
+    fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1" /></noscript>
+    src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1"
+    /></noscript>
     <!-- End Meta Pixel Code -->
     <!-- Vercel Analytics -->
     <script>
@@ -88,7 +141,13 @@
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
-<body style="background-color: #0D0D0D; color: #ffffff;">
+<body>
+
+    <div class="aurora-bg">
+        <div class="aurora-orb orb-1"></div>
+        <div class="aurora-orb orb-2"></div>
+        <div class="aurora-orb orb-3"></div>
+    </div>
 
     <nav class="navbar">
         <a href="/" class="logo">GetCitedGEO</a>
@@ -100,80 +159,64 @@
     </nav>
 
     <main>
-        <section class="article-section fade-up">
+        <section class="article-hero fade-up">
             <div class="badge" style="margin-bottom: 20px;">AI Visibility</div>
             <h1>Every day your business isn't visible to AI, someone else gets the client</h1>
+            <p style="font-size: 1.5rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">Not eventually. Today.</p>
+        </section>
 
-            <p><strong>Not eventually. Today.</strong></p>
+        <div class="hero-image-wrapper fade-up">
+            <img src="hero-ai-visibility.png" alt="Abstract visualization of AI networking and visibility">
+        </div>
 
-            <p>Right now, somewhere in your city, a potential client opened ChatGPT and typed the name of what you do
-                followed by the name of where you do it. AI gave them a name. They booked. The whole thing took four
-                minutes.</p>
-
+        <section class="article-content fade-up">
+            
+            <p>Right now, somewhere in your city, a potential client opened ChatGPT and typed the name of what you do followed by the name of where you do it. AI gave them a name. They booked. The whole thing took four minutes.</p>
+            
+            <div class="pull-quote">
+                "You didn't lose a pitch. You didn't get a bad review. You weren't even in the room. The client found someone, felt good about it, and moved on."
+            </div>
+            
             <p>That name wasn't yours.</p>
-
-            <p>You didn't lose a pitch. You didn't get a bad review. You weren't even in the room. The client found
-                someone, felt good about it, and moved on. You'll never know they existed.</p>
-
-            <p>This is happening every day. Not once a week. Every single day that your business isn't structured for AI
-                visibility, that scenario plays out - quietly, invisibly, with zero feedback that it's happening.</p>
+            
+            <p>You'll never know they existed. This is happening every day. Not once a week. Every single day that your business isn't structured for AI visibility, that scenario plays out - quietly, invisibly, with zero feedback that it's happening.</p>
 
             <h2>The businesses winning aren't better than you</h2>
-
+            
             <p>That's the part that should bother you most.</p>
-
-            <p>We audit businesses constantly. A law firm with 18 years operating, 200 five-star reviews, and genuine
-                expertise in their field - invisible to AI. Scores 24 out of 100. ChatGPT doesn't mention them.
-                Perplexity can't cite them. A competitor that opened three years ago scores 58 and gets recommended
-                daily.</p>
-
-            <p>Not because they're better lawyers. Because their website happens to be structured in a way AI can read.
-            </p>
-
-            <p>That's it. That's the whole difference.</p>
-
-            <p>The 18-year firm built their reputation on quality of work. The three-year firm built their website in a
-                way that accidentally ticks the right boxes. AI doesn't know the difference. AI recommends whoever it
-                can read.</p>
+            
+            <p>We audit businesses constantly. A law firm with 18 years operating, 200 five-star reviews, and genuine expertise in their field - <strong>invisible to AI</strong>. Scores 24 out of 100. ChatGPT doesn't mention them. Perplexity can't cite them. A competitor that opened three years ago scores 58 and gets recommended daily.</p>
+            
+            <p>Not because they're better lawyers. Because their website happens to be structured in a way AI can read. That's it. That's the whole difference.</p>
+            
+            <p>The 18-year firm built their reputation on quality of work. The three-year firm built their website in a way that accidentally ticks the right boxes. AI doesn't know the difference. AI recommends whoever it can read.</p>
 
             <h2>Your SEO isn't covering this</h2>
-
+            
             <p>Most business owners assume their SEO is handling it. It isn't.</p>
-
-            <p>The signals that drive AI recommendations have almost nothing to do with the signals that drive Google
-                rankings. Research across 75,000 brands confirmed it - backlinks, the core currency of traditional SEO,
-                correlate at just 0.266 with AI citation frequency. Completely different game, completely different
-                rules.</p>
-
-            <p>You can rank number one on Google for every keyword that matters to your business and be completely
-                invisible on ChatGPT, Perplexity, and Google AI Overviews simultaneously. We see it in almost every
-                audit.</p>
-
-            <p>Your SEO agency is optimising for a game that's changing underneath them. Most of them haven't caught up
-                yet.</p>
+            
+            <p>The signals that drive AI recommendations have almost nothing to do with the signals that drive Google rankings. Research across 75,000 brands confirmed it - backlinks, the core currency of traditional SEO, correlate at just 0.266 with AI citation frequency. <strong>Completely different game, completely different rules.</strong></p>
+            
+            <p>You can rank number one on Google for every keyword that matters to your business and be completely invisible on ChatGPT, Perplexity, and Google AI Overviews simultaneously. We see it in almost every audit.</p>
+            
+            <p>Your SEO agency is optimising for a game that's changing underneath them. Most of them haven't caught up yet.</p>
 
             <h2>What your audit will show you</h2>
-
+            
             <p>In the next 12 hours you'll get a text with your AI Visibility Score out of 100.</p>
-
-            <p>It'll show you exactly where you're visible and where you aren't. Which AI platforms can read your site
-                and which ones can't. What your competitors are doing that you aren't. The specific gaps costing you
-                inquiries right now - not in theory, in practice.</p>
-
+            
+            <p>It'll show you exactly where you're visible and where you aren't. Which AI platforms can read your site and which ones can't. What your competitors are doing that you aren't. The specific gaps costing you inquiries right now - not in theory, in practice.</p>
+            
             <p>The average score across every business we've audited is under 40.</p>
-
-            <p>Most people are surprised. Not because the problems are complicated - most aren't. Because nobody told
-                them this was happening while it was quietly happening.</p>
-
+            
+            <p>Most people are surprised. Not because the problems are complicated - most aren't. Because nobody told them this was happening while it was quietly happening.</p>
+            
             <p>Your score is on its way.</p>
-
-            <hr>
-
-            <div style="text-align: center; padding: 2rem 0;">
-                <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1rem;">Find out what ChatGPT thinks of your
-                    firm.</h3>
-                <a href="/#audit-form-section" class="cta-btn" style="display: inline-block;">Unlock Your Free Data
-                    Report</a>
+            
+            <div class="article-cta-box liquid-glass fade-up">
+                <h3>Find out what ChatGPT thinks of your firm.</h3>
+                <p style="font-size: 1.15rem; margin-bottom: 2rem;">Stop guessing if your business is visible to AI. Get your comprehensive data report.</p>
+                <a href="/#audit-form-section" class="cta-btn" style="display: inline-block;">Unlock Your Free Data Report</a>
             </div>
 
         </section>
@@ -187,6 +230,18 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Trigger fade-up animations on load
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('.fade-up');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('active');
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        });
+    </script>
 </body>
-
 </html>
