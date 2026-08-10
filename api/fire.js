@@ -16,15 +16,11 @@ export default async function handler(req, res) {
     }
 
     // Construct the payload for the Fire API
+    // Claude Routines expect dynamic input inside the "text" property
+    const payloadText = `name: ${data.name}, phone: ${data.phone}, email: ${data.email}, business name: ${data.business_name}, website: ${data.website}, preferred service: ${data.target_service}, slack channel: ${process.env.SLACK_CHANNEL || 'C0BKDL096GZ'}`;
+    
     const payload = {
-      full_name: data.name,
-      phone: data.phone,
-      email: data.email,
-      business_name: data.business_name,
-      website: data.website,
-      priority_service: data.target_service,
-      service_wanted_most: data.target_service,
-      slack_channel: process.env.SLACK_CHANNEL || 'C0BKDL096GZ'
+      text: payloadText
     };
 
     const fireUrl = process.env.FIRE_URL;
