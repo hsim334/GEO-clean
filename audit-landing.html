@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetCitedGEO | AI Overview Audit</title>
+    <meta name="description" content="Find out how often Google shows AI Overviews in your market — and how often your business appears in them.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #050607;
+            --card-bg: #0B0F12;
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --accent: #00D5DD;
+            --border: #1F2937;
+            
+            --font-main: 'Outfit', sans-serif;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: 0.2s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header {
+            padding: 32px 24px;
+            text-align: left;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.125rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        /* Typography */
+        h1, h2 {
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            max-width: 700px;
+            margin-bottom: 48px;
+        }
+
+        .subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 1.125rem;
+            padding: 18px 40px;
+            border-radius: 100px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000000;
+            box-shadow: 0 0 20px rgba(0, 213, 221, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 213, 221, 0.4);
+            background-color: #1ae5ed;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 15px rgba(0, 213, 221, 0.1) inset, 0 0 15px rgba(0, 213, 221, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 213, 221, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 213, 221, 0.2) inset, 0 0 25px rgba(0, 213, 221, 0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--accent);
+            color: #000000;
+            margin-top: 16px;
+        }
+
+        .btn-submit:hover {
+            transform: none;
+            background-color: #1ae5ed;
+        }
+
+        .reassurance {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+        }
+
+        /* Visuals */
+        .hero-visual {
+            display: flex;
+            gap: 24px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .metric-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px 48px;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .metric-label {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: linear-gradient(180deg, var(--bg) 0%, #080B0F 50%, var(--bg) 100%);
+        }
+
+        .comparison-visual {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .comp-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: left;
+        }
+
+        .comp-box.highlight {
+            background-color: var(--card-bg);
+            border-color: rgba(0, 213, 221, 0.3);
+            box-shadow: 0 0 40px rgba(0, 213, 221, 0.05);
+        }
+
+        .comp-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comp-box.highlight .comp-title {
+            color: var(--accent);
+            border-bottom-color: rgba(0, 213, 221, 0.2);
+        }
+
+        .comp-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .line-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .line {
+            height: 8px;
+            background-color: var(--border);
+            border-radius: 4px;
+        }
+
+        .line.title { height: 12px; width: 60%; background-color: #374151; }
+        .line.desc { width: 90%; }
+        .line.desc-short { width: 70%; }
+
+        .ai-result {
+            background: rgba(0, 213, 221, 0.05);
+            border: 1px solid rgba(0, 213, 221, 0.2);
+            border-radius: var(--radius);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .ai-result .line.title { background-color: var(--accent); opacity: 0.8; }
+        .ai-result .line { background-color: rgba(255,255,255,0.1); }
+
+        .supporting-line {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .step-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 213, 221, 0.1);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border: 1px solid rgba(0, 213, 221, 0.2);
+        }
+
+        .step-card p {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .step-footer {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Output Section */
+        .output-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .output-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .output-card span {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Skepticism */
+        .skepticism {
+            background: linear-gradient(180deg, var(--bg) 0%, #080B0F 50%, var(--bg) 100%);
+        }
+        
+        .skepticism .sk-sub {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 24px;
+            margin-top: -24px;
+        }
+
+        .skepticism .sk-text {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 0 120px;
+        }
+
+        .form-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 64px;
+            width: 100%;
+            max-width: 760px;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 64px; right: 64px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.5;
+        }
+
+        .form-wrapper h2 {
+            margin-bottom: 16px;
+            font-size: 2.25rem;
+        }
+
+        .form-subtext {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+            margin-bottom: 48px;
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 18px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent);
+        }
+        
+        .form-control::placeholder {
+            color: #4B5563;
+        }
+
+        .selectable-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .selectable-group.row {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        .selectable-group.row .selectable-btn {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .selectable-btn {
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 16px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            transition: var(--transition);
+            user-select: none;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .selectable-group.row .selectable-btn {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .selectable-btn:hover {
+            border-color: #374151;
+            background-color: #0e131a;
+        }
+
+        .selectable-btn.selected {
+            background-color: rgba(0, 213, 221, 0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .hidden-input {
+            display: none;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding-bottom: 120px;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            max-width: 800px;
+        }
+
+        .small-line {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section { padding: 80px 0; }
+            .form-wrapper { padding: 40px 24px; }
+            .metric-card { padding: 24px 32px; min-width: 100%; }
+            .comp-box { min-width: 100%; }
+            .step-card { min-width: 100%; }
+            .selectable-group.row { flex-direction: column; }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '783774997846579');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">GetCitedGEO</a>
+    </header>
+
+    <main class="container">
+        
+        <!-- SECTION 1 — HERO -->
+        <section class="section hero">
+            <h1>Find your two numbers.</h1>
+            <p class="subtitle">See how often Google shows AI Overviews in the searches that matter to your market — and how often your business appears inside them.</p>
+            
+            <button onclick="document.getElementById('audit-form').scrollIntoView()" class="btn btn-primary">Run My Free Audit</button>
+            <p class="reassurance">No guesswork. We test real searches in your market.</p>
+            
+            <div class="hero-visual">
+                <div class="metric-card">
+                    <div class="metric-label">AI Overview Coverage</div>
+                    <div class="metric-value">&mdash;%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Your Appearance Rate</div>
+                    <div class="metric-value">&mdash;%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 — THE PROBLEM / FRAME SHIFT -->
+        <section class="section problem">
+            <h2>Your rankings may not show the whole result anymore.</h2>
+            
+            <div class="comparison-visual">
+                <div class="comp-box">
+                    <div class="comp-title">Traditional Search Results</div>
+                    <div class="comp-lines">
+                        <div class="line-group">
+                            <div class="line title"></div>
+                            <div class="line desc"></div>
+                            <div class="line desc-short"></div>
+                        </div>
+                        <div class="line-group" style="opacity: 0.7">
+                            <div class="line title"></div>
+                            <div class="line desc"></div>
+                            <div class="line desc-short"></div>
+                        </div>
+                        <div class="line-group" style="opacity: 0.5">
+                            <div class="line title"></div>
+                            <div class="line desc"></div>
+                            <div class="line desc-short"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comp-box highlight">
+                    <div class="comp-title">AI Answer Shortlist</div>
+                    <div class="comp-lines">
+                        <div class="ai-result">
+                            <div class="line desc" style="width: 100%"></div>
+                            <div class="line desc" style="width: 95%"></div>
+                            <div class="line desc" style="width: 80%"></div>
+                            <div style="display: flex; gap: 8px; margin-top: 8px;">
+                                <div class="line title" style="width: 60px; height: 24px; border-radius: 4px;"></div>
+                                <div class="line title" style="width: 60px; height: 24px; border-radius: 4px;"></div>
+                                <div class="line title" style="width: 60px; height: 24px; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <div class="line-group" style="opacity: 0.7; margin-top: 8px;">
+                            <div class="line title"></div>
+                            <div class="line desc"></div>
+                            <div class="line desc-short"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="supporting-line">The same search can produce a different shortlist.</p>
+        </section>
+
+        <!-- SECTION 3 — HOW THE AUDIT WORKS -->
+        <section class="section process">
+            <h2>We test what customers actually see.</h2>
+            
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <p>We identify the Google searches that matter in your market.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <p>We record when an AI Overview appears.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <p>We measure how often your business appears inside those answers.</p>
+                </div>
+            </div>
+            
+            <p class="step-footer">If there’s a gap, we investigate why.</p>
+        </section>
+
+        <!-- SECTION 4 — OUTPUT -->
+        <section class="section output">
+            <h2>Your audit answers three questions.</h2>
+            
+            <div class="output-grid">
+                <div class="output-card"><span>1.</span> How often do AI Overviews appear in your market?</div>
+                <div class="output-card"><span>2.</span> How often does your business appear?</div>
+                <div class="output-card"><span>3.</span> Which competitors appear instead?</div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 — SKEPTICISM -->
+        <section class="section skepticism">
+            <h2>Maybe AI search barely matters in your market.</h2>
+            <p class="sk-sub">That’s exactly why we test it first.</p>
+            <p class="sk-text">We’re not asking you to invest in another marketing trend. The first step is simply finding out what is already happening in your market.</p>
+            <button onclick="document.getElementById('audit-form').scrollIntoView()" class="btn btn-secondary">Check My Market</button>
+        </section>
+
+        <!-- SECTION 6 — FORM -->
+        <section class="section form-section" id="audit-form">
+            <div class="form-wrapper">
+                <h2>Start Your AI Overview Audit</h2>
+                <p class="form-subtext">Tell us about your business so we can test the right searches.</p>
+                
+                <form action="https://formsubmit.co/hello@getcitedgeo.com" method="POST" id="audit-request-form">
+                    <!-- Config -->
+                    <input type="hidden" name="_next" id="next-url" value="">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New AI Audit Request">
+                    
+                    <!-- Hidden fields to capture UTM parameters -->
+                    <input type="hidden" name="utm_source" id="utm_source" value="">
+                    <input type="hidden" name="utm_medium" id="utm_medium" value="">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+                    
+                    <div class="form-group">
+                        <label>Full name</label>
+                        <input type="text" name="name" class="form-control" required placeholder="Jane Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Work email</label>
+                        <input type="email" name="email" class="form-control" required placeholder="jane@company.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone number</label>
+                        <input type="tel" name="phone" class="form-control" required placeholder="0400 000 000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="url" name="website" class="form-control" required placeholder="https://yourwebsite.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Business name</label>
+                        <input type="text" name="business_name" class="form-control" required placeholder="Company Pty Ltd">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Which service would you most like more enquiries for?</label>
+                        <input type="text" name="target_service" class="form-control" required placeholder="e.g. Commercial plumbing, Family law">
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary btn-submit">Run My Audit</button>
+                    <p class="reassurance" style="text-align: center; margin-top: 16px;">No card required.</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECTION 7 — FINAL CTA -->
+        <section class="section final-cta">
+            <h2>Before you spend money fixing AI visibility, find out whether there’s a problem.</h2>
+            <button onclick="document.getElementById('audit-form').scrollIntoView()" class="btn btn-primary">Run My Free Audit</button>
+            <p class="small-line">One market. Real searches. A clear baseline.</p>
+        </section>
+
+    </main>
+
+    <script>
+        // Set dynamic next URL for formsubmit
+        const baseUrl = window.location.origin;
+        const nextUrl = document.getElementById('next-url');
+        if (baseUrl && baseUrl !== "null") {
+            nextUrl.value = baseUrl + "/audit-thank-you.html";
+        } else {
+            // Fallback for local file opening, assumes relative path works or full domain
+            nextUrl.value = "https://getcitedgeo.com/audit-thank-you.html";
+        }
+
+        // Handle Custom Selectable UI
+        document.querySelectorAll('.selectable-group').forEach(group => {
+            const hiddenInputId = group.getAttribute('data-target');
+            const hiddenInput = document.getElementById(hiddenInputId);
+            const buttons = group.querySelectorAll('.selectable-btn');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove selected class from all in group
+                    buttons.forEach(b => b.classList.remove('selected'));
+                    // Add selected class to clicked
+                    btn.classList.add('selected');
+                    // Update hidden input value
+                    hiddenInput.value = btn.getAttribute('data-value');
+                });
+            });
+        });
+
+
+
+        // Capture UTM Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign'].forEach(param => {
+            if (urlParams.has(param)) {
+                const el = document.getElementById(param);
+                if(el) el.value = urlParams.get(param);
+            }
+        });
+    </script>
+</body>
+</html>
