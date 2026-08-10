@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | GetCitedGEO</title>
+    <title>Analysis Underway | GetCitedGEO</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
             --text-muted: #A1A1AA;
             --accent: #00D5DD;
             --font-main: 'Outfit', sans-serif;
+            --spacing-block: 80px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,11 +25,9 @@
             background-color: var(--bg);
             color: var(--text-main);
             font-family: var(--font-main);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-size: 1.125rem;
         }
 
         .header {
@@ -37,51 +36,159 @@
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
+            position: sticky;
+            top: 0;
+            background: rgba(5, 6, 7, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 10;
         }
 
         .logo {
-            font-size: 1.125rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 800;
             letter-spacing: -0.02em;
             color: var(--text-main);
             text-decoration: none;
         }
 
-        .container {
-            max-width: 800px;
+        .story-container {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 120px 24px;
-            text-align: center;
-            flex: 1;
+            padding: 80px 24px 160px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: -0.03em;
-            margin-bottom: 32px;
-        }
-
-        .subtitle {
-            font-size: clamp(1.125rem, 2vw, 1.375rem);
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 48px;
-            font-weight: 400;
-        }
-        
-        .booking-section {
-            margin-top: 64px;
-            padding-top: 64px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: none; /* Hidden by default until booking flow is added */
-        }
-
-        .booking-section h2 {
-            font-size: 2rem;
             margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
             font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin: var(--spacing-block) 0 32px;
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 40px 0 16px;
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 1.125rem;
+        }
+
+        .highlight {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .accent-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .callout {
+            border-left: 2px solid var(--accent);
+            padding-left: 24px;
+            margin: 48px 0;
+        }
+
+        .callout p {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 0;
+        }
+
+        .comparison-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 48px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .comp-col h4 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .comp-col ul {
+            list-style: none;
+        }
+
+        .comp-col li {
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .comp-col.ai li {
+            color: var(--accent);
+        }
+
+        .comp-footer {
+            grid-column: 1 / -1;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .source-note {
+            font-size: 0.875rem;
+            color: rgba(161, 161, 170, 0.6);
+            display: block;
+            margin-top: 8px;
+        }
+
+        .question-list {
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .question-list li {
+            margin-bottom: 24px;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .question-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .dyn-business, .dyn-service {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 600px) {
+            .comparison-box {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
     </style>
 
@@ -97,13 +204,11 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '783774997846579');
         fbq('track', 'PageView');
-        // Track the conversion event
         fbq('track', 'Lead');
     </script>
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=783774997846579&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -111,16 +216,226 @@
         <a href="audit-landing.html" class="logo">GetCitedGEO</a>
     </header>
 
-    <main class="container">
-        <h1>Your audit request is in.</h1>
-        <p class="subtitle">We’ll use your website and market information to determine which searches should be tested.</p>
+    <main class="story-container">
         
-        <!-- Placeholder for future booking flow -->
-        <div class="booking-section" id="booking-flow">
-            <h2>Book your audit walkthrough</h2>
-            <!-- Embedded calendar widget will go here -->
+        <h1>Your analysis is underway.</h1>
+        
+        <p class="highlight">We're looking at how AI systems understand <span class="dyn-business">your business</span>, which companies appear around <span class="dyn-service">your priority service</span>, and what information exists for them to work with.</p>
+        
+        <p>This takes around 15 minutes.</p>
+        
+        <p>While we do that, there is something you should understand before you see the result.</p>
+        
+        <div class="callout">
+            <p>When a customer asks AI who to hire in your market, what happens before they ever reach your website?</p>
         </div>
+
+        <p>Imagine a realistic customer thought:</p>
+        
+        <p class="highlight">“I need a <span class="dyn-service">specialist</span>. Who are the best options near me?”</p>
+
+        <p>The customer has a problem. They ask an AI system. The system interprets the problem. A handful of businesses enter the answer. The customer investigates some of them. Eventually somebody receives the enquiry.</p>
+
+        <p class="highlight">AI does not need to make the final purchase decision to matter.</p>
+        <p class="highlight">It only needs to influence who gets considered.</p>
+
+        <h2>Is this behaviour real and large enough to investigate?</h2>
+
+        <p>You might wonder if anybody actually uses this stuff enough to matter yet.</p>
+
+        <p>Google reported more than <span class="highlight">2.5 billion monthly active AI Overview users</span> in May 2026. <span class="source-note">— Google CEO Sundar Pichai, Alphabet Q1 2026 Earnings Call</span></p>
+
+        <p>OpenAI reported information-seeking becoming materially more important within ChatGPT, increasing from approximately <span class="highlight">14% to 24% of messages</span> during their measured period. <span class="source-note">— OpenAI Research, 2026</span></p>
+
+        <h2>Fine. But I already rank on Google.</h2>
+
+        <p>You'd expect the businesses winning Google to automatically win the AI answer.</p>
+
+        <p>But the two systems do not always produce the same competitive set.</p>
+
+        <div class="comparison-box">
+            <div class="comp-col">
+                <h4>Traditional Google</h4>
+                <ul>
+                    <li>1. Business A</li>
+                    <li>2. Business B</li>
+                    <li>3. Business C</li>
+                </ul>
+            </div>
+            <div class="comp-col ai">
+                <h4>AI Answer Shortlist</h4>
+                <ul>
+                    <li>Business B</li>
+                    <li>Business F</li>
+                    <li>Business D</li>
+                </ul>
+            </div>
+            <div class="comp-footer">
+                Same customer need. Different shortlist.
+            </div>
+        </div>
+
+        <p>This does NOT mean SEO is dead.</p>
+        
+        <p>In fact, many traditional search fundamentals still matter. It means a Google ranking alone does not tell you the entire AI-discovery story.</p>
+
+        <h2>Why should I care?</h2>
+
+        <p>You may already spend thousands getting customers to notice you. Google Ads. SEO. Social. Directories. Referral systems.</p>
+
+        <p>AI introduces a new question.</p>
+
+        <p class="highlight">What happens when the customer begins forming their shortlist before any of those channels receive the click?</p>
+
+        <p>Several independent datasets suggest that when AI answers appear, users can behave differently and click traditional results less often. <span class="source-note">— Ahrefs Observational Studies / Pew Research, 2026</span></p>
+
+        <p>Website traffic alone may no longer describe every influence occurring before a buying decision.</p>
+
+        <h2>So what makes AI choose one business over another?</h2>
+
+        <p>There isn't one known universal ranking formula. Different systems use different retrieval methods, sources and models.</p>
+
+        <p>But there is still something useful we can investigate.</p>
+
+        <div class="callout">
+            <p>Being good and looking recommendable are different jobs.</p>
+        </div>
+
+        <p><span class="dyn-business">Your business</span> may genuinely possess years of experience, strong reviews, specialist knowledge, good people, and an excellent reputation.</p>
+
+        <p>But those advantages can be buried, poorly explained, inconsistent, difficult to extract, poorly corroborated, or absent from the questions customers actually ask.</p>
+
+        <p class="highlight">The authority can exist in the real world while remaining difficult for a machine to interpret.</p>
+
+        <h2>How systems interpret businesses</h2>
+
+        <p>Think of it through four concepts:</p>
+
+        <h3>FIND</h3>
+        <p>Can useful information about your business be discovered and accessed?</p>
+
+        <h3>UNDERSTAND</h3>
+        <p>Can the system clearly determine who you are, what you do, where you operate, who you serve, and what you specialise in?</p>
+
+        <h3>VERIFY</h3>
+        <p>Can important claims be supported or corroborated through your own content, credible third-party information, reviews, credentials, and consistent business facts?</p>
+
+        <h3>COMPARE</h3>
+        <p>When a customer asks a specific buying question, is enough relevant information available to understand how your business fits against alternatives?</p>
+
+        <h2>This is why your analysis is not simply asking if <span class="dyn-business">your business</span> exists online.</h2>
+
+        <p>It is asking a much more useful set of questions.</p>
+
+        <ul class="question-list">
+            <li>When customers ask about <span class="dyn-service">your priority service</span>, which businesses appear?</li>
+            <li>Does <span class="dyn-business">your business</span> appear consistently?</li>
+            <li>Which competitors appear instead?</li>
+            <li>Does AI correctly understand what you do and where you are strongest?</li>
+            <li>What sources appear around the businesses being recommended?</li>
+            <li>Are important facts inconsistent?</li>
+            <li>Are valuable claims supported?</li>
+            <li>Do different AI systems tell the same story?</li>
+        </ul>
+
+        <h2>There is a problem with AI-search marketing right now.</h2>
+
+        <p>One prompt is not a scientific visibility score.</p>
+        <p>No credible company can guarantee ChatGPT recommendations.</p>
+        <p>Google has explicitly said no special AI schema is required for its AI features, and llms.txt does not affect Google AI visibility.</p>
+        <p>AI visibility is not simply “publish more pages.”</p>
+
+        <p class="highlight">You may not need GEO. You should know.</p>
+
+        <p>The purpose of the analysis is not to manufacture a problem. It is to determine whether there is a commercially meaningful one.</p>
+
+        <h2>Wait. Couldn't I just wait a few years?</h2>
+
+        <p>If AI-mediated customer discovery develops more slowly than expected, there is no reason to throw your entire marketing strategy away.</p>
+
+        <p>Many sensible improvements remain useful anyway. Clearer service information. Better business facts. More useful answers. Better authority presentation.</p>
+
+        <p class="highlight">But if AI becomes materially more important in your category, having a baseline early is useful.</p>
+
+        <h2>If there is a problem, what actually changes?</h2>
+
+        <p>Fortunately, many problems we find are not problems with the underlying business. They are problems of clarity, structure, corroboration and accessibility.</p>
+
+        <p>We are not trying to trick an AI system into believing you are better than you are. We are trying to make genuine value easier to interpret.</p>
+
+        <p>If the analysis finds material gaps, we can implement the priority fixes for you.</p>
+
+        <p><span class="highlight">Business Clarity:</span> We clarify core business information, locations, evidence and expertise.</p>
+        <p><span class="highlight">Priority Service Content:</span> We improve the pages most relevant to the service you want enquiries for.</p>
+        <p><span class="highlight">Customer-Question Content:</span> We create useful content around real questions customers ask.</p>
+        <p><span class="highlight">Authority and Proof:</span> We make important trust signals, credentials, and third-party corroboration easier to interpret.</p>
+
+        <h2>You do not need to learn GEO.</h2>
+
+        <p>You do not need another 40-page audit.</p>
+
+        <p>You do not need your team spending three weeks researching what schema, crawlers, entities and citation structures mean.</p>
+
+        <p>We do the specialist analysis. We prepare the changes. We create the assets. We handle the implementation we can safely handle. Where your developer needs to make a higher-risk change, we tell them exactly what needs to happen.</p>
+
+        <p>Then we document and validate the work.</p>
+
+        <h2>Couldn't my web developer just do this?</h2>
+
+        <p>Yes, a developer can implement many technical instructions.</p>
+
+        <p>That is not the scarce part.</p>
+
+        <p>The scarce part is knowing what matters, what does not, what is evidence, what is speculation, what should be left alone, and what customer questions matter.</p>
+
+        <p>The product is partly implementation. But the higher-order product is judgement.</p>
+
+        <div class="callout">
+            <p>Imagine knowing instead of guessing.</p>
+        </div>
+
+        <p>You know which questions matter. You know whether your business appears. You know which competitors appear. You know which supposed GEO tactics are not worth chasing.</p>
+
+        <p class="highlight">The goal is not another marketing dashboard. It is fewer unanswered questions.</p>
+
+        <h2>When a customer asks AI who to hire in your market, does it arrive at you?</h2>
+
+        <p>That is what we're finding out.</p>
+
+        <p>For <span class="dyn-business">your business</span>, we're looking for three things:</p>
+        <p>Where your existing authority is already visible.<br>
+        Where valuable information may be unclear or missing.<br>
+        Where competitors may currently be easier to understand or recommend.</p>
+
+        <p class="highlight">If there is no commercially meaningful problem, we will tell you.</p>
+
+        <p>If there is, you will be able to see exactly what we found and why we think it matters.</p>
+
+        <p>No magic score. No guaranteed rankings. No ‘SEO is dead’ bullshit.</p>
+
+        <p class="accent-text" style="font-size: 1.25rem; margin-top: 40px;">Evidence first. Recommendation second.</p>
+        
+        <p style="margin-top: 40px;"><em>Your personalised analysis will arrive in your inbox shortly.</em></p>
+
     </main>
 
+    <script>
+        // Personalization Script
+        const urlParams = new URLSearchParams(window.location.search);
+        const businessName = urlParams.get('business');
+        const priorityService = urlParams.get('service');
+
+        if (businessName) {
+            document.querySelectorAll('.dyn-business').forEach(el => {
+                el.textContent = businessName;
+            });
+        }
+        
+        if (priorityService) {
+            document.querySelectorAll('.dyn-service').forEach(el => {
+                el.textContent = priorityService;
+            });
+        }
+    </script>
 </body>
 </html>

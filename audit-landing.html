@@ -781,8 +781,12 @@
                     console.error('FormSubmit failed, but Fire API succeeded');
                 }
                 
-                // Redirect on completion
-                window.location.href = '/audit-thank-you.html';
+                // Redirect on completion with params for personalization
+                const params = new URLSearchParams({
+                    business: data.business_name || '',
+                    service: data.target_service || ''
+                });
+                window.location.href = `/audit-thank-you.html?${params.toString()}`;
                 
             } catch (error) {
                 console.error('Submission error:', error);
