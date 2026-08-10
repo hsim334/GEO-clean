@@ -672,11 +672,7 @@
                 <h2>Start Your AI Overview Audit</h2>
                 <p class="form-subtext">Tell us about your business so we can test the right searches.</p>
                 
-                <form action="https://formsubmit.co/hello@getcitedgeo.com" method="POST" id="audit-request-form">
-                    <!-- Config -->
-                    <input type="hidden" name="_next" id="next-url" value="">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New AI Audit Request">
+                <form id="audit-request-form">
                     
                     <!-- Hidden fields to capture UTM parameters -->
                     <input type="hidden" name="utm_source" id="utm_source" value="">
@@ -713,9 +709,8 @@
                         <input type="text" name="target_service" class="form-control" required placeholder="e.g. Commercial plumbing, Family law">
                     </div>
 
-
-
-                    <button type="submit" class="btn btn-primary btn-submit">Run My Audit</button>
+                    <div id="form-error" style="color: #ef4444; margin-bottom: 16px; display: none; padding: 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--radius);"></div>
+                    <button type="submit" id="submit-btn" class="btn btn-primary btn-submit">Run My Audit</button>
                     <p class="reassurance" style="text-align: center; margin-top: 16px;">No card required.</p>
                 </form>
             </div>
@@ -731,15 +726,55 @@
     </main>
 
     <script>
-        // Set dynamic next URL for formsubmit
-        const baseUrl = window.location.origin;
-        const nextUrl = document.getElementById('next-url');
-        if (baseUrl && baseUrl !== "null") {
-            nextUrl.value = baseUrl + "/audit-thank-you.html";
-        } else {
-            // Fallback for local file opening, assumes relative path works or full domain
-            nextUrl.value = "https://getcitedgeo.com/audit-thank-you.html";
-        }
+        document.getElementById('audit-request-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const errorDiv = document.getElementById('form-error');
+            
+            // Collect data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Basic validation
+            if (!data.name || !data.email || !data.phone || !data.business_name || !data.website || !data.target_service) {
+                errorDiv.textContent = 'Please fill out all required fields.';
+                errorDiv.style.display = 'block';
+                return;
+            }
+            
+            // Loading state
+            errorDiv.style.display = 'none';
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            try {
+                const response = await fetch('/api/fire', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    window.location.href = '/audit-thank-you.html';
+                } else {
+                    throw new Error(result.error || 'Submission failed');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                errorDiv.textContent = error.message || 'An error occurred while submitting. Please try again.';
+                errorDiv.style.display = 'block';
+                
+                // Reset button
+                submitBtn.textContent = 'Run My Audit';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
+        });
 
         // Handle Custom Selectable UI
         document.querySelectorAll('.selectable-group').forEach(group => {
