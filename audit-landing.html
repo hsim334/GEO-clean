@@ -751,19 +751,39 @@
             submitBtn.style.opacity = '0.7';
             
             try {
-                const response = await fetch('/api/fire', {
+                // 1. Send securely to the Fire API (Claude Routine)
+                const fireResponse = await fetch('/api/fire', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
                 
-                const result = await response.json();
+                const fireResult = await fireResponse.json();
+                if (!fireResponse.ok) throw new Error(fireResult.error || 'Fire API submission failed');
                 
-                if (response.ok) {
-                    window.location.href = '/audit-thank-you.html';
-                } else {
-                    throw new Error(result.error || 'Submission failed');
+                // 2. Send to FormSubmit to trigger the email notification
+                const emailData = {
+                    ...data,
+                    _subject: "New AI Audit Request",
+                    _captcha: "false"
+                };
+
+                const emailResponse = await fetch('https://formsubmit.co/ajax/hello@getcitedgeo.com', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(emailData)
+                });
+
+                if (!emailResponse.ok) {
+                    console.error('FormSubmit failed, but Fire API succeeded');
                 }
+                
+                // Redirect on completion
+                window.location.href = '/audit-thank-you.html';
+                
             } catch (error) {
                 console.error('Submission error:', error);
                 errorDiv.textContent = error.message || 'An error occurred while submitting. Please try again.';
