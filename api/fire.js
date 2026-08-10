@@ -40,7 +40,9 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${fireToken}`
+        'Authorization': `Bearer ${fireToken}`,
+        'anthropic-beta': 'experimental-cc-routine-2026-04-01',
+        'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify(payload)
     });
